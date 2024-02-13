@@ -46,10 +46,6 @@
     visibility:hidden;
   }
 
-  .concrete {
-
-  }
-
   @font-face {
     font-family: pixely;
     src: url(slkscr.ttf);
@@ -61,7 +57,7 @@
     left:5300px;
     width:1000px;
     height:1000px;
-    z-index:-1;
+    z-index:0;
   }
 
   #pulse {
