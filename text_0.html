@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oresteia</title>
+    <link rel="stylesheet" href="styles_text.css">
+    <link rel="icon" type="image/x-icon" href="ico.png">
+    <style>
+        /* Optional: Add some basic styles for the container */
+        #text-container {
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+            margin-bottom: 10px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <p id="msg"></p>
+    <script>
+function printLetterByLetter(destination, message, speed, callback) {
+    var i = 0;
+    var interval = setInterval(function () {
+        if (message.charAt(i) === '\n') {
+            document.getElementById(destination).innerHTML += '<br>';
+        } else {
+            document.getElementById(destination).innerHTML += message.charAt(i);
+            let sound = new Audio('SND_TXT1.wav')
+            sound.play()
+        }
+        i++;
+        if (i >= message.length) {
+            clearInterval(interval);
+            if (callback) {
+                callback(); // Call the callback function if provided
+            }
+        }
+    }, speed);
+}
+
+
+printLetterByLetter("msg", "Helena, de echtgenote van Menelaos, werd weggeroofd door Paris,\nde prins van Troje.\n\nZijn broer, Agamemnon, is op reis naar Troje.\n\nOmdat de wind niet goed zit, raadpleegt hij de goden voor hulp.\n\nHet voorstel van de goden is duidelijk.\n\nIphigeneia, de dochter van Agamemnon, moet worden geofferd.\n\n\n(Klik om verder te gaan)", 50, function() {
+    document.addEventListener('click',function next() {
+    window.location.href = "ephigeneia.html";
+    })
+})
+    </script>
+</body>
+</html>

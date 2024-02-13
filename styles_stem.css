@@ -1,0 +1,53 @@
+  body {
+    margin:0;
+    overflow:hidden;
+    text-align:center;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    font-family: 'pixely';
+    background:black;
+    color:white;
+  }
+
+  @font-face {
+    font-family: pixely;
+    src: url(slkscr.ttf);
+}
+
+.column {
+  width: 50%;
+  height:100%;
+  border:1px white groove;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.row {
+  width:100vw;
+  height:100vh;
+  display:flex;
+}
+
+h1 {
+  font-size:50px;
+}
+
+button {
+  font-size:30px;
+  color:darkred;
+  background:none;
+  border:none;
+  transition: color 200ms, transform 100ms;
+}
+
+button:hover {
+  cursor: pointer;
+  color:red;
+  transform:scale(1.2);
+}

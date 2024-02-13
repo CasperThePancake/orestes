@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oresteia</title>
+    <link rel="stylesheet" href="styles_stem.css">
+</head>
+<body>
+    <div class="row" id="row">
+    <div class="column">
+        <h1>Orestes</h1>
+        <h2>Moord op Clytaemnestra</h2>
+        <h2>Motief: zijn vader wreken</h2>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <button onclick="next()">Orestes is schuldig</button>
+    </div>
+    <div class="column">
+        <h1>Clytaemnestra</h1>
+        <h2>Moord op Agamemnon</h2>
+        <h2>Motief: haar dochter wreken</h2>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <button onclick="next()">Clytaemnestra is schuldig</button>
+    </div>
+    </div>
+    <script>
+        var music = new Audio('basement.mp3')
+        music.volume = 0.2
+        music.play()
+        var click = false;
+        function next() {
+            if (click) return;
+            click = true
+            document.getElementById("row").style.transition = "opacity 2s linear"
+            document.getElementById("row").style.opacity = 0
+            setTimeout(function() {
+                window.location.href = "text_4.html";
+            }, 3000);
+            lowerVolume()
+            }
+            async function lowerVolume() {
+    if (music.volume > 0) {
+        music.volume -= 0.005;
+        console.log(music.volume);
+        setTimeout(lowerVolume, 50);
+    }
+}
+    </script>
+</body>
+</html>

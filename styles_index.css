@@ -1,0 +1,99 @@
+#box {
+    width: 80px;
+    height: 80px;
+    background:url(player.png);
+    background-size: contain;
+    position: absolute;
+    top: 5000px;
+    left: 5000px;
+    z-index:999999;
+  }
+
+  body {
+    margin:0;
+    overflow:hidden;
+    height: 100000px;
+    width:100000px;
+    text-align:center;
+    background-image: url(grass.jpg);
+    background-size:75px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
+    font-family: 'pixely';
+    transform:rotate3d(90deg);
+  }
+
+  @keyframes shake {
+    0% { transform: translate(0); }
+    10%, 90% { transform: translate(-10px, 0); }
+    20%, 80% { transform: translate(10px, 0); }
+    30%, 50%, 70% { transform: translate(-10px, 0); }
+    40%, 60% { transform: translate(10px, 0); }
+    100% { transform: translate(0); }
+}
+
+.shake {
+    animation: shake 0.5s infinite;
+}
+  
+  #stats {
+    width:150px;
+    height:75px;
+    border:2px black groove;
+    position:fixed;
+    background:white;
+    visibility:hidden;
+  }
+
+  .concrete {
+
+  }
+
+  @font-face {
+    font-family: pixely;
+    src: url(slkscr.ttf);
+}
+  
+  #altar {
+    position:absolute;
+    top:5200px;
+    left:5300px;
+    width:1000px;
+    height:1000px;
+    z-index:-1;
+  }
+
+  #pulse {
+    z-index:999999999;
+    background-color:rgba(255, 0, 0, 0);
+    width:inherit;
+    height:inherit;
+    transition: background-color 200ms linear;
+
+  }
+
+  img {
+    image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+  }
+
+  .wall {
+    z-index:99;
+    position:absolute;
+  }
+
+  #popup {
+    width:150px;
+    height:50px;
+    background:white;
+    border:2px black groove;
+    position:absolute;
+    top:5745px;
+    left:5890px;
+    visibility:hidden;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+  }

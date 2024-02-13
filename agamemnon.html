@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oresteia</title>
+  <link rel="stylesheet" href="styles_agamemnon.css">
+  <link rel="icon" type="image/x-icon" href="ico.png">
+</head>
+<body id="body">
+  <div id="pulse"></div>
+  <div id="box"></div>
+  <div id="stats">
+    <p id="xpos">x = </p>
+    <p id="ypos">y = </p>
+  </div>
+  <div id="house"><img src="house.png" width=1500 id="house_img"></div>
+  <div id="greenkey"><img src="greenkey.png" width=100 id="greenkey_img"></div>
+  <div id="redkey"><img src="redkey.png" width=100 id="redkey_img"></div>
+  <div id="popup"><p>Klik om te doden</p></div>
+
+  <script src="script_agamemnon.js"></script>
+  <script>
+    // Function to handle drag-and-drop for wall elements
+    function handleDrag(event) {
+        // Store the initial position of the mouse pointer when dragging starts
+        let initialX = event.clientX;
+        let initialY = event.clientY;
+
+        // Store the initial position of the dragged element
+        let initialPosX = parseFloat(window.getComputedStyle(this).left);
+        let initialPosY = parseFloat(window.getComputedStyle(this).top);
+
+        // Function to update the position of the wall element
+        const moveElement = (event) => {
+            // Calculate the new position of the element based on the mouse movement
+            let newX = initialPosX + event.clientX - initialX;
+            let newY = initialPosY + event.clientY - initialY;
+
+            // Update the position of the wall element
+            this.style.left = newX + 'px';
+            this.style.top = newY + 'px';
+        };
+
+        // Function to stop dragging
+        const stopDragging = () => {
+            // Remove event listeners
+            document.removeEventListener('mousemove', moveElement);
+            document.removeEventListener('mouseup', stopDragging);
+        };
+
+        // Attach event listeners for dragging and stopping dragging
+        document.addEventListener('mousemove', moveElement);
+        document.addEventListener('mouseup', stopDragging);
+    }
+
+    // Get all wall elements and attach the drag event listener to each
+    let walls = document.querySelectorAll('.wall');
+    walls.forEach(wall => {
+        wall.addEventListener('mousedown', handleDrag);
+    });
+</script>
+</body>
+</html>
